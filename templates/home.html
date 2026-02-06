@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Bosh sahifa {% endblock title%}
+
+{% block content %}
+    {% if user.is_authenticated %}
+<!--        {{ user.username }}-->
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {%csrf_token %}
+        <section class="page-bg">
+           <div class="oval-box">
+              <h1>Bizning saytga xush kelibsiz</h1><br>
+              <p>Bu yerda siz <strong>dasturlash</strong> va <strong>dasturchilikka</strong> oid so'ngi yangiliklardan xabardor bo'lasiz.</p>
+              <a href="{% url 'article' %}" class="btn btn-success">Xabarlarni ko'rish</a>
+               <button type="submit" class="btn btn-outline-danger">Chiqib ketish</button>
+           </div>
+        </section>
+        </form>
+    {% else %}
+        <seqtion>
+            <div class="page-bg">
+                <div class="oval-box">
+                    <h1 style="color:red;">Assalomu alaykum foydalanuvchi, <br><br>Siz saytga kirmagansiz!</h1>
+                </div>
+            </div>
+        </seqtion>
+    {% endif %}
+{% endblock content %}
+
+
+

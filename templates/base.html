@@ -1,0 +1,91 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}IKROMJON BLOG{% endblock title %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'assets/home.css' %}">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+        <a href="{% url 'home' %}" class="btn btn-outline-dark">Home <br>
+            <img src="{% static 'assets/img/logo.png' %}" width="40" height="40"
+                 class="d-inline-block align-top" alt="">
+            IKROMJON BLOG
+        </a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#"
+                       id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        <button class="btn btn-outline-dark">MENU</button>
+<!--                        {{ user.username| capfirst }}-->
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdown">
+
+                        <li><a class="dropdown-item" href="{% url 'yangi_post' %}">Yangi post yozish</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'password_change' %}"> Kalit so'zni almashtirish</a>
+                        </li><li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item"  href="{% url 'home' %}">Bosh sahifa</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+            {% else %}
+            <form class="d-flex ms-auto">
+                <a href="{% url 'login' %}" class="btn btn-outline-light">
+                    kirish
+                </a>
+                <a href="{% url 'signup' %}" class="btn btn-outline-light">
+                    Ro'yxatdan o'tish
+                </a>
+<!--                <a href="{% url 'home' %}" class="btn btn-outline-light">-->
+<!--                    Chiqib ketish-->
+                </a>
+                 <a href="{% url 'password_change' %}" class="btn btn-outline-light">
+                     Kalit so'zni almashtrish
+                 </a>
+
+            </form>
+            {% endif %}
+      </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

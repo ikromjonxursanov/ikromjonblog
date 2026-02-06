@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content  %}
+    <h1>Tahrirlah</h1>
+    <form method="post" enctype="multiper/form-data">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-outline-success">Saqlash</button>
+    </form>
+{% endblock content %}
