@@ -21,3 +21,9 @@ python-dotenv==1.2.1
 
 marshmallow==4.2.2
 packaging==26.0
+
+whitenoise
+django-ckeditor
+django-crispy-forms
+crispy-bootstrap5
+environs

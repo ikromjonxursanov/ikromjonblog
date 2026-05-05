@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',#tashqi paket
+
     'crispy_bootstrap5',
     'accounts',
     'pages',
