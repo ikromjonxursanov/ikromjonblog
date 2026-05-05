@@ -24,9 +24,7 @@ services:
       POSTGRES_PASSWORD: 1234
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5435:5432"
-
+    
   nginx:
     image: nginx:latest
     container_name: nginx_server
