@@ -88,11 +88,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': env.dj_db_url("DATABASE_URL",  default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}")
-
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ikromjonblog',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'db',
+        'PORT': '5435',
     }
-
-
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
