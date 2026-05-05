@@ -19,7 +19,7 @@ services:
     container_name: postgres_db
     restart: always
     environment:
-      POSTGRES_DB: fastfood
+      POSTGRES_DB: ikromjonblog
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
     volumes:
